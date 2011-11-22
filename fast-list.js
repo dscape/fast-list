@@ -1,5 +1,3 @@
-module.exports = FastList
-
 function Item (data, prev, next) {
   this.next = next
   if (next) next.prev = this
@@ -81,3 +79,8 @@ FastList.prototype =
     FastList.call(this)
   }
 }
+
+if('undefined' !== typeof(exports)) module.exports = FastList
+else if ('function' === typeof(define) && define.amd) {
+  define('FastList', function() { return FastList; });
+} else window.FastList = FastList
